@@ -1,9 +1,13 @@
 package mislugares.example.org.firebase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DataSnapshot;
@@ -21,8 +25,9 @@ import java.util.List;
 public class TurismoActivity extends AppCompatActivity {
 
     RecyclerView rv;
-    List<LugarTuristico> Lugares;
+    public static  List<LugarTuristico> Lugares;
     private Firebase FBData;
+    public  static Turismo LTur;
 
     Adapter adapter;
     private  static final String FirebaseUrl="https://turismo-a3b2c.firebaseio.com/";
@@ -37,6 +42,9 @@ public class TurismoActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         adapter= new Adapter(Lugares);
+
+
+
         rv.setAdapter(adapter);
 
         database.getReference().getRoot().addValueEventListener(new ValueEventListener() {
@@ -57,8 +65,25 @@ public class TurismoActivity extends AppCompatActivity {
             }
         });
 
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int num =rv.getChildAdapterPosition(v);
+                String msg="se presionó  "+ Integer.toString(num);
+
+                Toast.makeText(TurismoActivity.this,msg,Toast.LENGTH_SHORT).show();
+                lanzarLugarTurismo(v, num);
+            }
+        });
+
     }
 
+    public void lanzarLugarTurismo(View view, int pos){
+        Intent i = new Intent(this, LugarActivity.class);
+        //long id = (long)pos;
+        i.putExtra("id", pos);
+        startActivity(i);
 
+    }
 
 }

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1075686721853",
+    "firebase_url": "https://turismo-a3b2c.firebaseio.com",
+    "project_id": "turismo-a3b2c",
+    "storage_bucket": "turismo-a3b2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075686721853:android:22d75d5a6fb5323e",
+        "android_client_info": {
+          "package_name": "mislugares.example.org.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075686721853-vgu16eck4fe9ot42hgrehtdv9k9ahv2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYZrJdA4I07i3XNC6qdXlLlnv0SfadyIs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

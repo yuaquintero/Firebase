@@ -22,17 +22,6 @@ import static android.R.attr.id;
 public class LugarActivity extends AppCompatActivity {
 
 
-    private String nombre;
-    private String direccion;
-    private int telefono;
-    private String email;
-    private String distancia;
-    private String ruta;
-    private double lat;
-    private double lon;
-    private String foto;
-    private double valoracion;
-    private String comentario;
 
     private TextView Lynombre;
     private TextView Lydireccion;
