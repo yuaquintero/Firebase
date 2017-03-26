@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/blue"
+        android:id="@+id/Lugar"
         >
 
         <TextView
@@ -17,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:text="@string/nlugar"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:padding="10dp" />
 
@@ -32,7 +33,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-
                 android:text="@string/tDir"
                 android:padding="7dp" />
             <TextView
@@ -46,7 +46,7 @@
         <LinearLayout
             android:id="@+id/telefono_barra"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:orientation="horizontal">
 
             <TextView
@@ -56,21 +56,25 @@
                 android:layout_gravity="bottom"
                 android:text="@string/tTel"
                 android:padding="7dp" />
+
             <TextView
                 android:id="@+id/tel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_weight="0.42" />
+                android:layout_weight="0.19" />
 
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/stat_sys_speakerphone"
-                android:id="@+id/imageButton"
+                app:srcCompat="@android:drawable/stat_sys_phone_call"
+                android:id="@+id/b_tel"
                 android:background="@color/blue"
-                android:padding="7dp" />
+                android:padding="7dp"
+                android:layout_marginRight="40dp"
+
+                android:elevation="10dp" />
 
 
         </LinearLayout>
@@ -79,9 +83,8 @@
         <LinearLayout
             android:id="@+id/email_barra"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="33dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/email"
@@ -98,16 +101,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:padding="7dp"
-                 />
+                android:layout_weight="0.79" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/sym_action_email"
-                android:id="@+id/imageButton2"
-                android:layout_weight="0.28"
-                android:padding="7dp"
-                android:background="@color/blue" />
+                android:id="@+id/mail"
+                android:layout_marginRight="40dp"
+            android:padding="7dp"
+                android:background="@color/blue"
+                />
 
         </LinearLayout>
 
@@ -149,7 +153,8 @@
               android:id="@+id/ruta"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_gravity="bottom" />
+              android:layout_gravity="bottom"
+              />
 
 
       </LinearLayout>
@@ -165,25 +170,52 @@
                 android:layout_height="40dp"
                 android:contentDescription="logo del comentario"
                 android:src="@android:drawable/ic_menu_info_details" />
+
             <TextView
                 android:id="@+id/comentario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Comentario sobre el lugar" />
+                android:layout_height="35dp"
+                android:layout_gravity="bottom" />
         </LinearLayout>
 
-        <RatingBar
-            android:id="@+id/valoracion"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_toRightOf="@+id/foto"
-            android:rating="3" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <RatingBar
+                android:id="@+id/valoracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/foto"
+                android:rating="3"
+                android:numStars="5"
+                style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+                android:padding="1dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                tools:ignore="ObsoleteLayoutParam" />
+
+            <Button
+
+                android:text="Calificar"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/b_califica"
+                android:padding="4dp"
+                android:textSize="10dp"
+                android:layout_marginLeft="40dp"
+                style="@style/Base.TextAppearance.AppCompat.Button"
+                android:elevation="10dp" />
+
+
+        </LinearLayout>
+
+
+
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="199dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/foto"
                 android:layout_width="match_parent"
@@ -195,17 +227,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:contentDescription="logo camara"
-                    android:src="@android:drawable/ic_menu_camera" />
-                <ImageView
+
+                ImageView
+                    android:id="@+id/foto_lugar"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="logo galeria"
                     android:src="@android:drawable/ic_menu_gallery" />
             </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
 </ScrollView>

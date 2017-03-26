@@ -22,13 +22,15 @@ import java.util.List;
  * Created by Quintero on 20/03/2017.
  */
 
+/**
+ * Esta clase lee la informacion de las lugares turisticos desde la base de datos en Firebase
+ * y se la pasa al recyclerview para mostrarla.
+ */
 public class TurismoActivity extends AppCompatActivity {
 
     RecyclerView rv;
     public static  List<LugarTuristico> Lugares;
     private Firebase FBData;
-    public  static Turismo LTur;
-
     Adapter adapter;
     private  static final String FirebaseUrl="https://turismo-a3b2c.firebaseio.com/";
 
@@ -42,8 +44,6 @@ public class TurismoActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         adapter= new Adapter(Lugares);
-
-
 
         rv.setAdapter(adapter);
 
@@ -69,10 +69,9 @@ public class TurismoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int num =rv.getChildAdapterPosition(v);
-                String msg="se presionó  "+ Integer.toString(num);
-
-                Toast.makeText(TurismoActivity.this,msg,Toast.LENGTH_SHORT).show();
-                lanzarLugarTurismo(v, num);
+               // String msg="se presionó  "+ Integer.toString(num);
+               // Toast.makeText(TurismoActivity.this,msg,Toast.LENGTH_SHORT).show();
+                lanzarLugarTurismo(v,num);
             }
         });
 
@@ -80,7 +79,6 @@ public class TurismoActivity extends AppCompatActivity {
 
     public void lanzarLugarTurismo(View view, int pos){
         Intent i = new Intent(this, LugarActivity.class);
-        //long id = (long)pos;
         i.putExtra("id", pos);
         startActivity(i);
 
